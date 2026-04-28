@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" role="img" aria-label="European Union flag">
+  <rect width="60" height="40" fill="#003399"/>
+  <defs>
+    <polygon id="eus" points="0,-2.5 0.59,-0.81 2.38,-0.77 0.95,0.31 1.47,2.02 0,1 -1.47,2.02 -0.95,0.31 -2.38,-0.77 -0.59,-0.81" fill="#FFCC00"/>
+  </defs>
+  <use href="#eus" transform="translate(30 8)"/>
+  <use href="#eus" transform="translate(36 9.6)"/>
+  <use href="#eus" transform="translate(40.39 14)"/>
+  <use href="#eus" transform="translate(42 20)"/>
+  <use href="#eus" transform="translate(40.39 26)"/>
+  <use href="#eus" transform="translate(36 30.4)"/>
+  <use href="#eus" transform="translate(30 32)"/>
+  <use href="#eus" transform="translate(24 30.4)"/>
+  <use href="#eus" transform="translate(19.61 26)"/>
+  <use href="#eus" transform="translate(18 20)"/>
+  <use href="#eus" transform="translate(19.61 14)"/>
+  <use href="#eus" transform="translate(24 9.6)"/>
+</svg>

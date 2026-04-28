@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Report — Open Source Reporting & Data Visualization</title>
+  <meta name="description" content="Build interactive dashboards with a drag-and-drop canvas. Source-available (PolyForm Noncommercial 1.0.0), self-hosted alternative to Power BI and Looker Studio with row-level security, workspaces and team roles.">
+  <meta name="theme-color" content="#7c3aed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0a1f" media="(prefers-color-scheme: dark)">
+
+  <!-- Canonical URL — avoids duplicate-content issues across http/https/www variants -->
+  <link rel="canonical" href="https://openreport.io/">
+
+  <!-- Open Graph (Facebook, LinkedIn, Slack, Discord, ...) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Open Report">
+  <meta property="og:title" content="Open Report — Open Source Reporting & Data Visualization">
+  <meta property="og:description" content="Drag-and-drop dashboards. Self-hosted or managed in France. PolyForm Noncommercial 1.0.0 — fork it, no vendor lock-in. Row-level security, workspaces, multi-database, 12+ visualizations.">
+  <meta property="og:url" content="https://openreport.io/">
+  <meta property="og:image" content="https://openreport.io/logo-dark.png">
+  <meta property="og:image:width" content="1229">
+  <meta property="og:image:height" content="297">
+  <meta property="og:image:alt" content="Open Report — open source reporting that you control">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Open Report — Open Source Reporting & Data Visualization">
+  <meta name="twitter:description" content="Drag-and-drop dashboards. Self-hosted or managed in France. PolyForm Noncommercial 1.0.0, row-level security, workspaces.">
+  <meta name="twitter:image" content="https://openreport.io/logo-dark.png">
+  <meta name="twitter:image:alt" content="Open Report — open source reporting that you control">
+
+  <!-- Search engine indexing hints -->
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data — helps Google generate rich snippets (logo, description,
+       and pricing range) directly in the search results. Two schemas:
+       SoftwareApplication for the product, Organization for the brand. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Open Report",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Reporting & Data Visualization",
+        "operatingSystem": "Web, Linux, macOS, Windows (self-hosted via Docker)",
+        "description": "Open source reporting and data-visualization platform with drag-and-drop dashboards, row-level security, multi-database support and team workspaces.",
+        "url": "https://openreport.io/",
+        "image": "https://openreport.io/logo-dark.png",
+        "license": "https://github.com/cracky777/openreport/blob/master/LICENSE",
+        "softwareVersion": "0.1.0",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Community (self-hosted)",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "description": "Free for noncommercial use under PolyForm Noncommercial 1.0.0 — run on your own infrastructure"
+          },
+          {
+            "@type": "Offer",
+            "name": "Cloud Free",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "description": "Hosted in France, 5 MB total uploads"
+          },
+          {
+            "@type": "Offer",
+            "name": "Cloud Pro",
+            "price": "20",
+            "priceCurrency": "EUR",
+            "description": "Hosted in France, 200 MB total uploads, email support"
+          }
+        ],
+        "featureList": [
+          "Drag-and-drop canvas",
+          "Row-level security",
+          "Team workspaces with roles",
+          "Multi-page reports",
+          "Custom measures (SQL expressions)",
+          "12+ visualization types",
+          "Cross-filtering",
+          "Multi-database (PostgreSQL, MySQL, BigQuery, Azure SQL, DuckDB)",
+          "Export to PDF / PNG / Excel",
+          "Public sharing links"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "name": "Open Report",
+        "url": "https://openreport.io/",
+        "logo": "https://openreport.io/logo.png",
+        "sameAs": [
+          "https://github.com/cracky777/openreport"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <picture>
+          <source srcset="logo-dark.svg" media="(prefers-color-scheme: dark)">
+          <img src="logo.svg" alt="Open Report" class="logo-img">
+        </picture>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#visualizations">Visualizations</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://github.com/cracky777/openreport" target="_blank" class="nav-github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://app.openreport.io" class="btn btn-outline btn-sm">Sign in</a>
+        <a href="https://app.openreport.io" class="btn btn-primary btn-sm">Launch App</a>
+      </div>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2l4 -4"/><path d="M12 21a9 9 0 1 1 0 -18a9 9 0 0 1 0 18z"/></svg>
+        Source-available · PolyForm Noncommercial 1.0.0 · No vendor lock-in
+      </div>
+      <h1>Open source reporting<br>that <span class="hl">you</span> control</h1>
+      <p class="hero-sub">
+        Build interactive dashboards with a drag-and-drop canvas. Connect your databases,
+        share with your team, enforce row-level security — all on infrastructure you own.
+        No black-box pricing, no per-seat fees, no data leaving your servers.
+      </p>
+      <div class="hero-actions">
+        <a href="https://app.openreport.io" class="btn btn-primary btn-lg">Launch App</a>
+        <a href="https://github.com/cracky777/openreport" target="_blank" class="btn btn-outline btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Star on GitHub
+        </a>
+        <a href="#get-started" class="btn btn-ghost btn-lg">Self-host →</a>
+      </div>
+
+      <!-- Editor mock -->
+      <div class="hero-image">
+        <div class="editor-frame">
+          <div class="editor-titlebar">
+            <div class="editor-dots"><span></span><span></span><span></span></div>
+            <div class="editor-url">app.openreport.io / Sales report</div>
+          </div>
+          <div class="editor-toolbar">
+            <div class="tb-group">
+              <div class="tb-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5 -5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg></div>
+              <div class="tb-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14l5 -5l-5 -5"/><path d="M20 9h-11a5 5 0 0 0 0 10h3"/></svg></div>
+            </div>
+            <div class="tb-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg> Sales 2024</div>
+            <div class="tb-title">Q4 Performance</div>
+            <div class="tb-group tb-right">
+              <div class="tb-chip">Public</div>
+              <div class="tb-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1 -1v-8"/><path d="M12 3v13"/><path d="M8 7l4 -4l4 4"/></svg></div>
+            </div>
+          </div>
+          <div class="editor-body">
+            <!-- Canvas -->
+            <div class="ed-canvas">
+              <div class="ew ew-kpi">
+                <div class="kpi-label">Revenue Q4</div>
+                <div class="kpi-value">€1.24M</div>
+                <div class="kpi-delta">▲ 18.4%</div>
+              </div>
+              <div class="ew ew-kpi alt">
+                <div class="kpi-label">New customers</div>
+                <div class="kpi-value">847</div>
+                <div class="kpi-delta">▲ 12.1%</div>
+              </div>
+              <div class="ew ew-bar">
+                <div class="bar-title">Revenue by region</div>
+                <div class="bars">
+                  <div class="bar"><span style="height:80%"></span></div>
+                  <div class="bar"><span style="height:62%"></span></div>
+                  <div class="bar"><span style="height:48%"></span></div>
+                  <div class="bar"><span style="height:34%"></span></div>
+                  <div class="bar"><span style="height:22%"></span></div>
+                </div>
+              </div>
+              <div class="ew ew-line">
+                <div class="bar-title">Monthly trend</div>
+                <svg viewBox="0 0 200 80" preserveAspectRatio="none" class="line-svg">
+                  <defs>
+                    <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" style="stop-color: var(--accent); stop-opacity: 0.4"/>
+                      <stop offset="100%" style="stop-color: var(--accent); stop-opacity: 0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,60 L25,52 L50,55 L75,38 L100,42 L125,28 L150,32 L175,18 L200,22 L200,80 L0,80 Z" fill="url(#lg1)"/>
+                  <path d="M0,60 L25,52 L50,55 L75,38 L100,42 L125,28 L150,32 L175,18 L200,22" fill="none" stroke-width="2" style="stroke: var(--accent)"/>
+                </svg>
+              </div>
+              <div class="ew ew-pie">
+                <div class="bar-title">By product</div>
+                <div class="pie"></div>
+              </div>
+              <div class="ew ew-table">
+                <div class="bar-title">Top customers</div>
+                <div class="trow"><span>Acme Corp</span><span>€48K</span></div>
+                <div class="trow"><span>Globex</span><span>€41K</span></div>
+                <div class="trow"><span>Initech</span><span>€36K</span></div>
+                <div class="trow"><span>Soylent</span><span>€29K</span></div>
+              </div>
+            </div>
+
+            <!-- Config panel -->
+            <div class="ed-config">
+              <div class="cfg-h">Bar chart</div>
+              <div class="cfg-row">
+                <span>Stacking</span>
+                <span class="cfg-val">Clustered</span>
+              </div>
+              <div class="cfg-row">
+                <span>Show labels</span>
+                <span class="toggle on"></span>
+              </div>
+              <div class="cfg-row">
+                <span>Color</span>
+                <span class="swatch"></span>
+              </div>
+              <div class="cfg-row">
+                <span>Border radius</span>
+                <span class="slider"><span></span></span>
+              </div>
+              <div class="cfg-h cfg-h2">Filters</div>
+              <div class="cfg-row">
+                <span>Year</span>
+                <span class="cfg-val">2024</span>
+              </div>
+              <div class="cfg-row">
+                <span>Region</span>
+                <span class="cfg-val">All</span>
+              </div>
+            </div>
+
+            <!-- Data panel (far right) -->
+            <div class="ed-data">
+              <div class="data-section">
+                <div class="data-h">Dimensions</div>
+                <div class="data-item"><span class="d-tag dim">D</span> region</div>
+                <div class="data-item"><span class="d-tag dim">D</span> product</div>
+                <div class="data-item"><span class="d-tag dim">D</span> month</div>
+                <div class="data-item"><span class="d-tag dim">D</span> customer</div>
+              </div>
+              <div class="data-section">
+                <div class="data-h">Measures</div>
+                <div class="data-item"><span class="d-tag mea">M</span> revenue</div>
+                <div class="data-item"><span class="d-tag mea">M</span> units sold</div>
+                <div class="data-item"><span class="d-tag mea">M</span> margin %</div>
+                <div class="data-item"><span class="d-tag mea fx">fx</span> growth YoY</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why open source -->
+  <section class="why-os">
+    <div class="container">
+      <h2>Why open source matters</h2>
+      <p class="section-sub">Your data is your business. The tool that reads it should be transparent, auditable, and yours.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M9 12l2 2l4 -4"/></svg></div>
+          <h3>No vendor lock-in</h3>
+          <p>PolyForm Noncommercial 1.0.0 source code. Fork it, patch it, run it on a Raspberry Pi — free for any noncommercial use. We can never deprecate or paywall what you've already deployed.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9z"/><path d="M12 12l8 -4.5"/><path d="M12 12v9"/><path d="M12 12L4 7.5"/></svg></div>
+          <h3>Your data, your servers</h3>
+          <p>Self-host on-premise or in your own cloud. Connect to Postgres, MySQL, BigQuery, Azure SQL — queries run locally, nothing leaves your network.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18a14.5 14.5 0 0 1 0 -18"/></svg></div>
+          <h3>Transparent forever</h3>
+          <p>Read the code. Read the queries. Audit the security. No telemetry shipping back to a SaaS vendor — what you see in the repo is what runs in your stack.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2l4 -4"/><path d="M12 3a12 12 0 0 0 -8.5 3a12 12 0 0 0 8.5 18a12 12 0 0 0 8.5 -18a12 12 0 0 0 -8.5 -3"/></svg></div>
+          <h3>Free, forever</h3>
+          <p>Unlimited reports, unlimited users, unlimited datasources when you self-host. No seat licenses, no &laquo; first 5 are free, then $20/user &raquo; surprise.</p>
+        </div>
+      </div>
+
+      <div class="why-callout">
+        <img src="eu-flag.svg" alt="European Union flag" class="why-flag">
+        <div>
+          <h4>Choose our cloud? Your data stays in France.</h4>
+          <p>If you'd rather not host yourself, our managed cloud runs on European infrastructure — your databases, uploaded files and metadata are stored in France, under EU jurisdiction (GDPR-native, no Cloud Act exposure).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Everything you need to build reports</h2>
+      <p class="section-sub">No coding required. Connect your data, drag widgets, secure access, share with your team.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13v-8.5a1.5 1.5 0 0 1 3 0v7.5"/><path d="M11 11.5v-2a1.5 1.5 0 0 1 3 0v2.5"/><path d="M14 10.5a1.5 1.5 0 0 1 3 0v1.5"/><path d="M17 11.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7l-.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47"/></svg></div>
+          <h3>Drag & Drop Canvas</h3>
+          <p>Freely position and resize widgets on a snap-to-grid canvas. Rotate, layer, group — Power BI-style freedom on a multi-page layout.</p>
+        </div>
+        <div class="feature-card highlight">
+          <div class="feature-tag">Fine-grained</div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M10 12l2 2l4 -4"/></svg></div>
+          <h3>Row-Level Security</h3>
+          <p>Define per-row access on any data model with glob patterns (<code>*@acme.com</code>, <code>alice*</code>). Deny by default, owner &amp; admin bypass — viewers only see what you allow.</p>
+        </div>
+        <div class="feature-card highlight">
+          <div class="feature-tag">Built-in</div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></div>
+          <h3>Workspaces &amp; team roles</h3>
+          <p>Group reports in workspaces, invite members by email, assign Admin / Editor / Viewer roles. Move reports between workspaces, rename and delete with one click.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></div>
+          <h3>Multi-database</h3>
+          <p>Native drivers for PostgreSQL, MySQL, Azure SQL, BigQuery. Or import CSV / Excel / Parquet / JSON locally with DuckDB — no warehouse required.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></svg></div>
+          <h3>Cross-filtering</h3>
+          <p>Click any chart to filter every other widget on the page. Highlights with opacity, drill paths, multi-select — exactly the interactions your users expect.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h5"/></svg></div>
+          <h3>Multi-page reports</h3>
+          <p>Organize content across pages with a sidebar navigator. Per-page filters, custom themes, and a preview/edit toggle — all without leaving the editor.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1 -18 0a9 9 0 0 1 18 0z"/><path d="M9 11l3 3l8 -8"/></svg></div>
+          <h3>Custom measures</h3>
+          <p>Build calculated fields with a SQL expression editor that knows your model. Sum, average, ratio, growth-over-time, anything DuckDB or your DB supports.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14l11 -11"/><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"/></svg></div>
+          <h3>Export &amp; share</h3>
+          <p>Export to PDF, PNG, Excel or print. Share reports via public links — viewers don't need accounts, RLS-protected reports stay locked down.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25"/><path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></div>
+          <h3>Theme &amp; customization</h3>
+          <p>Light/dark themes, custom color palettes per legend value, gradients, shadows, borders, rotation. Fine-tune every widget down to the pixel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visualizations -->
+  <section id="visualizations" class="visualizations">
+    <div class="container">
+      <h2>12+ visualization types</h2>
+      <p class="section-sub">From simple bar charts to gauges, treemaps and pivot tables — all native, all themeable.</p>
+      <div class="viz-grid">
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 20h14"/></svg></div>
+          <span>Bar Chart</span>
+          <small>Clustered, Stacked, 100%</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l16 0"/><path d="M4 15l4 -6l4 2l4 -5l4 4"/></svg></div>
+          <span>Line Chart</span>
+          <small>Line, Area, Stacked</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 7l5 -3l5 4l6 -4"/></svg></div>
+          <span>Combo Chart</span>
+          <small>Line + Bar</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.2a9 9 0 1 0 10.8 10.8a1 1 0 0 0 -1 -1h-6.8a2 2 0 0 1 -2 -2v-6.8a1 1 0 0 0 -1 -1"/><path d="M15 3.5a9 9 0 0 1 5.5 5.5h-4.5a1 1 0 0 1 -1 -1v-4.5"/></svg></div>
+          <span>Pie / Donut</span>
+          <small>With labels</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M18 8m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M8 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M17 18m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></div>
+          <span>Scatter / Bubble</span>
+          <small>X, Y, Size</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M4 10h16"/><path d="M10 4v16"/></svg></div>
+          <span>Table</span>
+          <small>Sort, paginate, format</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M4 10h16"/><path d="M10 4v16"/><path d="M4 15h16"/><path d="M15 4v16"/></svg></div>
+          <span>Pivot Table</span>
+          <small>Row & column dims</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1"/><text x="12" y="16" text-anchor="middle" fill="currentColor" stroke="none" font-size="11" font-weight="700" font-family="Inter, sans-serif">42</text></svg></div>
+          <span>Scorecard</span>
+          <small>Single KPI</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9"/><path d="M3 12a9 9 0 0 1 9 -9"/><path d="M12 12l4 -4"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></div>
+          <span>Gauge</span>
+          <small>Arc, Column, thresholds</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h8v18h-8z"/><path d="M11 3h10v10h-10z"/><path d="M11 13h10v8h-10z"/></svg></div>
+          <span>TreeMap</span>
+          <small>Hierarchical blocks</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 5h13a1 1 0 0 1 .5 1.5l-5 5.5l0 7l-4 -3l0 -4l-5 -5.5a1 1 0 0 1 .5 -1.5"/></svg></div>
+          <span>Filter / Slicer</span>
+          <small>List, dropdown, date</small>
+        </div>
+        <div class="viz-card">
+          <div class="viz-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l-4 7h8z"/><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M4 14h6v6h-6z"/></svg></div>
+          <span>Shapes</span>
+          <small>Square, circle, arrow, line</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="tech">
+    <div class="container">
+      <h2>Built with modern tech</h2>
+      <p class="section-sub tech-sub">Read every line. Every dependency is open source.</p>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <strong>React 19</strong>
+          <span>Frontend</span>
+        </div>
+        <div class="tech-item">
+          <strong>Vite</strong>
+          <span>Build tool</span>
+        </div>
+        <div class="tech-item">
+          <strong>ECharts</strong>
+          <span>Visualizations</span>
+        </div>
+        <div class="tech-item">
+          <strong>Node.js</strong>
+          <span>Backend</span>
+        </div>
+        <div class="tech-item">
+          <strong>Express</strong>
+          <span>API</span>
+        </div>
+        <div class="tech-item">
+          <strong>SQLite</strong>
+          <span>Metadata</span>
+        </div>
+        <div class="tech-item">
+          <strong>DuckDB</strong>
+          <span>Local files</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2>Simple pricing</h2>
+      <p class="section-sub">Self-host for free forever, or let us run it for you on European infrastructure (hosted in France 🇫🇷).</p>
+
+      <div class="pricing-grid pricing-row">
+        <div class="pricing-card">
+          <span class="pricing-tier tier-self">Self-hosted</span>
+          <div class="pricing-name">Community</div>
+          <div class="pricing-price">Free</div>
+          <div class="pricing-period">forever &middot; on your servers</div>
+          <ul>
+            <li>All visualizations</li>
+            <li>Unlimited reports &amp; datasources</li>
+            <li>Workspaces &amp; team roles</li>
+            <li>Row-level security</li>
+            <li>Cross-filtering &amp; multi-page</li>
+            <li>Export PDF / Excel</li>
+            <li>Public sharing links</li>
+            <li>PolyForm Noncommercial 1.0.0 source code</li>
+          </ul>
+          <a href="https://github.com/cracky777/openreport" target="_blank" class="btn btn-outline btn-block">Install from GitHub</a>
+        </div>
+        <div class="pricing-card pricing-cloud-card">
+          <span class="pricing-tier tier-cloud">Cloud</span>
+          <div class="pricing-name">Free</div>
+          <div class="pricing-price">€0</div>
+          <div class="pricing-period">forever &middot; managed</div>
+          <ul>
+            <li>5&nbsp;MB total file uploads</li>
+            <li>All Community features</li>
+            <li>Hosted &amp; managed by us</li>
+            <li>Automatic updates</li>
+            <li>Community support</li>
+          </ul>
+          <a href="https://app.openreport.io" class="btn btn-outline btn-block">Sign up free</a>
+        </div>
+        <div class="pricing-card pricing-cloud-card pricing-featured">
+          <div class="pricing-badge">Coming soon</div>
+          <span class="pricing-tier tier-cloud">Cloud</span>
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price">€20</div>
+          <div class="pricing-period">per month &middot; managed</div>
+          <ul>
+            <li>200&nbsp;MB total file uploads</li>
+            <li>Everything in Free</li>
+            <li>Email support</li>
+            <li>Scheduled exports</li>
+            <li>Custom domain</li>
+          </ul>
+          <button type="button" class="btn btn-primary btn-block" onclick="openWaitlist('pro')">Join the waitlist</button>
+        </div>
+        <div class="pricing-card pricing-cloud-card">
+          <span class="pricing-tier tier-cloud">Cloud</span>
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">Custom</div>
+          <div class="pricing-period">contact us &middot; managed</div>
+          <ul>
+            <li>2&nbsp;GB+ file uploads</li>
+            <li>Everything in Pro</li>
+            <li>SSO authentication</li>
+            <li>Audit logs</li>
+            <li>Priority support</li>
+            <li>SLA guarantee</li>
+          </ul>
+          <a href="mailto:support@openreport.io" class="btn btn-outline btn-block">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started -->
+  <section id="get-started" class="get-started">
+    <div class="container">
+      <h2>Try it now</h2>
+      <p class="section-sub">Launch the hosted app — no install required.</p>
+      <div style="text-align: center; margin-bottom: 40px;">
+        <a href="https://app.openreport.io" class="btn btn-primary btn-lg">Open app</a>
+      </div>
+      <h3 style="text-align: center; margin-top: 60px;">Or self-host in 2 minutes</h3>
+      <div class="code-block">
+        <div class="code-header">Terminal</div>
+        <pre><code><span class="comment"># Clone the repository</span>
+git clone https://github.com/cracky777/openreport.git
+cd openreport
+
+<span class="comment"># Install dependencies</span>
+cd server &amp;&amp; npm install
+cd ../client &amp;&amp; npm install
+
+<span class="comment"># Start the app</span>
+cd ../server &amp;&amp; node index.js &amp;
+cd ../client &amp;&amp; npm run dev</code></pre>
+      </div>
+      <p class="get-started-sub">
+        Then open <strong>http://localhost:5173</strong> — default login: <code>admin@openreport.local</code> / <code>admin</code>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <img src="logo-dark.svg" alt="Open Report" class="footer-logo-img">
+        </a>
+        <p>Open source reporting for everyone.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#visualizations">Visualizations</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="https://github.com/cracky777/openreport" target="_blank">GitHub</a>
+          <a href="https://github.com/cracky777/openreport/issues" target="_blank">Issues</a>
+          <a href="https://github.com/cracky777/openreport/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="https://github.com/cracky777/openreport/blob/master/LICENSE" target="_blank">License (PolyForm Noncommercial 1.0.0)</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024-2026 Open Report. Licensed under PolyForm Noncommercial 1.0.0.</p>
+    </div>
+  </footer>
+
+  <!-- Waitlist modal -->
+  <div id="waitlist-modal" class="wl-overlay" onclick="if (event.target === this) closeWaitlist()">
+    <div class="wl-modal">
+      <button class="wl-close" type="button" onclick="closeWaitlist()" aria-label="Close">&times;</button>
+      <h3>Get notified when <span id="wl-plan-name">Pro</span> launches</h3>
+      <p class="wl-sub">One email when it goes live. No spam, no marketing list — just the launch ping.</p>
+      <input id="wl-email" type="email" placeholder="you@example.com" autocomplete="email">
+      <button type="button" class="wl-submit btn btn-primary" onclick="submitWaitlist()">Notify me</button>
+      <div id="wl-msg" class="wl-msg"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // When the static site is served from localhost (e.g. python -m http.server,
+      // file://, or any local web server), point at the dev cloud API on :3001
+      // instead of production. Production hits app.openreport.io.
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+      var WAITLIST_URL = isLocal
+        ? 'http://localhost:3001/api/billing/waitlist'
+        : 'https://app.openreport.io/api/billing/waitlist';
+      var planKey = 'pro';
+
+      window.openWaitlist = function (plan) {
+        planKey = plan || 'pro';
+        var label = plan === 'enterprise' ? 'Enterprise' : 'Pro';
+        document.getElementById('wl-plan-name').textContent = label;
+        document.getElementById('wl-email').value = '';
+        document.getElementById('wl-msg').textContent = '';
+        document.getElementById('wl-msg').className = 'wl-msg';
+        document.getElementById('waitlist-modal').classList.add('open');
+        setTimeout(function () { document.getElementById('wl-email').focus(); }, 80);
+      };
+
+      window.closeWaitlist = function () {
+        document.getElementById('waitlist-modal').classList.remove('open');
+      };
+
+      window.submitWaitlist = async function () {
+        var email = document.getElementById('wl-email').value.trim();
+        var msg = document.getElementById('wl-msg');
+        if (!email || !/.+@.+\..+/.test(email)) {
+          msg.textContent = 'Please enter a valid email address.';
+          msg.className = 'wl-msg wl-msg-error';
+          return;
+        }
+        msg.textContent = 'Submitting…';
+        msg.className = 'wl-msg';
+        try {
+          var res = await fetch(WAITLIST_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, planKey: planKey })
+          });
+          if (!res.ok) {
+            var err = await res.json().catch(function () { return {}; });
+            throw new Error(err.error || ('Server returned ' + res.status));
+          }
+          msg.textContent = "You're on the list — we'll email " + email + ' when it launches.';
+          msg.className = 'wl-msg wl-msg-ok';
+          setTimeout(closeWaitlist, 3000);
+        } catch (e) {
+          msg.textContent = 'Could not register: ' + e.message;
+          msg.className = 'wl-msg wl-msg-error';
+        }
+      };
+
+      // Close on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && document.getElementById('waitlist-modal').classList.contains('open')) {
+          closeWaitlist();
+        }
+      });
+
+      // Submit on Enter inside the email field
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && document.activeElement && document.activeElement.id === 'wl-email') {
+          e.preventDefault();
+          submitWaitlist();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
