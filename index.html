@@ -3,42 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open Report — Open Source Reporting & Data Visualization</title>
-  <meta name="description" content="Build interactive dashboards with a drag-and-drop canvas. Source-available (PolyForm Noncommercial 1.0.0), self-hosted alternative to Power BI and Looker Studio with row-level security, workspaces and team roles.">
+  <title>Open Report — Open source Power BI &amp; Looker Studio alternative</title>
+  <meta name="description" content="Self-hosted reporting and dashboards with drag-and-drop, row-level security, scheduled email reports and 12+ chart types. PostgreSQL, MySQL, BigQuery, Azure SQL, DuckDB. PolyForm Noncommercial 1.0.0 — your data stays on your servers.">
+  <meta name="author" content="Open Report">
   <meta name="theme-color" content="#7c3aed" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0a1f" media="(prefers-color-scheme: dark)">
 
   <!-- Canonical URL — avoids duplicate-content issues across http/https/www variants -->
   <link rel="canonical" href="https://openreport.io/">
 
-  <!-- Open Graph (Facebook, LinkedIn, Slack, Discord, ...) -->
+  <!-- Open Graph (Facebook, LinkedIn, Slack, Discord, ...) — uses the
+       1200x630 og-image.svg shipped at the repo root. SVG isn't supported
+       by every social crawler (LinkedIn in particular prefers PNG/JPG);
+       export og-image.svg to og-image.png at the same dimensions if you
+       hit issues there and swap the URL below. -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Open Report">
-  <meta property="og:title" content="Open Report — Open Source Reporting & Data Visualization">
-  <meta property="og:description" content="Drag-and-drop dashboards. Self-hosted or managed in France. PolyForm Noncommercial 1.0.0 — fork it, no vendor lock-in. Row-level security, workspaces, multi-database, 12+ visualizations.">
+  <meta property="og:title" content="Open Report — Open source Power BI &amp; Looker Studio alternative">
+  <meta property="og:description" content="Drag-and-drop dashboards, row-level security, scheduled email reports, multi-database. Self-hosted under PolyForm Noncommercial 1.0.0 or managed in France 🇫🇷.">
   <meta property="og:url" content="https://openreport.io/">
-  <meta property="og:image" content="https://openreport.io/logo-dark.png">
-  <meta property="og:image:width" content="1229">
-  <meta property="og:image:height" content="297">
+  <meta property="og:image" content="https://openreport.io/og-image.svg">
+  <meta property="og:image:secure_url" content="https://openreport.io/og-image.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Open Report — open source reporting that you control">
   <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
 
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Open Report — Open Source Reporting & Data Visualization">
-  <meta name="twitter:description" content="Drag-and-drop dashboards. Self-hosted or managed in France. PolyForm Noncommercial 1.0.0, row-level security, workspaces.">
-  <meta name="twitter:image" content="https://openreport.io/logo-dark.png">
+  <meta name="twitter:title" content="Open Report — Open source Power BI &amp; Looker Studio alternative">
+  <meta name="twitter:description" content="Drag-and-drop dashboards, row-level security, scheduled email reports. Self-hosted or managed in France 🇫🇷.">
+  <meta name="twitter:image" content="https://openreport.io/og-image.svg">
   <meta name="twitter:image:alt" content="Open Report — open source reporting that you control">
 
   <!-- Search engine indexing hints -->
   <meta name="robots" content="index, follow">
-
-  <!-- Search Console verification — replace the contents with the tokens
-       provided when you claim the site in Google Search Console and Bing
-       Webmaster Tools. Both consoles also support DNS / file-based
-       verification if you'd rather not embed the tag. -->
-  <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_TOKEN">
-  <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN">
 
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,9 +59,9 @@
         "applicationCategory": "BusinessApplication",
         "applicationSubCategory": "Reporting & Data Visualization",
         "operatingSystem": "Web, Linux, macOS, Windows (self-hosted via Docker)",
-        "description": "Open source reporting and data-visualization platform with drag-and-drop dashboards, row-level security, multi-database support and team workspaces.",
+        "description": "Open source reporting and data-visualization platform with drag-and-drop dashboards, row-level security, scheduled email reports, multi-database support and team workspaces. A self-hostable alternative to Power BI and Looker Studio.",
         "url": "https://openreport.io/",
-        "image": "https://openreport.io/logo-dark.png",
+        "image": "https://openreport.io/og-image.svg",
         "license": "https://github.com/cracky777/openreport/blob/master/LICENSE",
         "softwareVersion": "0.1.0",
         "offers": [
@@ -76,27 +77,35 @@
             "name": "Cloud Free",
             "price": "0",
             "priceCurrency": "EUR",
-            "description": "Hosted in France, 5 MB total uploads"
+            "description": "Hosted in France 🇫🇷 — 5 MB total uploads, 3 scheduled emails (1/day per schedule), community support"
           },
           {
             "@type": "Offer",
             "name": "Cloud Pro",
             "price": "20",
             "priceCurrency": "EUR",
-            "description": "Hosted in France, 200 MB total uploads, email support"
+            "description": "Hosted in France 🇫🇷 — 200 MB total uploads, 20 scheduled emails (1/day per schedule), email support"
+          },
+          {
+            "@type": "Offer",
+            "name": "Cloud Enterprise",
+            "priceCurrency": "EUR",
+            "description": "Hosted in France 🇫🇷 — 2 GB+ uploads, unlimited scheduled emails (any frequency), custom domain, SSO, audit logs, priority support & SLA"
           }
         ],
         "featureList": [
           "Drag-and-drop canvas",
           "Row-level security",
+          "Scheduled email reports (PDF attached)",
           "Team workspaces with roles",
           "Multi-page reports",
           "Custom measures (SQL expressions)",
           "12+ visualization types",
-          "Cross-filtering",
+          "Cross-filtering and drill-down",
           "Multi-database (PostgreSQL, MySQL, BigQuery, Azure SQL, DuckDB)",
           "Export to PDF / PNG / Excel",
-          "Public sharing links"
+          "Public sharing links",
+          "Light / dark themes & custom palettes"
         ]
       },
       {
