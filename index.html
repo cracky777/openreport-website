@@ -590,16 +590,20 @@
 git clone https://github.com/cracky777/openreport.git
 cd openreport
 
-<span class="comment"># Install dependencies</span>
-cd server &amp;&amp; npm install
-cd ../client &amp;&amp; npm install
+<span class="comment"># Install — checks Node, installs 22 if yours is older</span>
+./install.sh
 
 <span class="comment"># Start the app</span>
-cd ../server &amp;&amp; node index.js &amp;
-cd ../client &amp;&amp; npm run dev</code></pre>
+npm run dev</code></pre>
       </div>
       <p class="get-started-sub">
         Then open <strong>http://localhost:5173</strong> — the first user to sign up becomes the admin automatically.
+      </p>
+      <p class="get-started-sub">
+        Needs <strong>Node.js 22 or newer</strong>. If yours is older, <code>install.sh</code> installs it
+        through nvm — in your home directory, without sudo. On Windows, install Node 22 from
+        <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> and run
+        <code>npm run install:all</code> instead.
       </p>
     </div>
   </section>
