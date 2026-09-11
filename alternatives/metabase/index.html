@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Report vs Metabase &mdash; two open source BI tools compared</title>
+  <meta name="description" content="Both are open source and self-hostable. Metabase is the older and larger project; Open Report is built around a report canvas, a semantic model and scheduled PDF emails. An honest comparison.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://openreport.io/alternatives/metabase/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Open Report">
+  <meta property="og:title" content="Open Report vs Metabase &mdash; two open source BI tools compared">
+  <meta property="og:description" content="Both are open source and self-hostable. Metabase is the older and larger project; Open Report is built around a report canvas, a semantic model and scheduled PDF emails. An honest comparison.">
+  <meta property="og:url" content="https://openreport.io/alternatives/metabase/">
+  <meta property="og:image" content="https://openreport.io/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Open Report vs Metabase &mdash; two open source BI tools compared">
+  <meta name="twitter:description" content="Both are open source and self-hostable. Metabase is the older and larger project; Open Report is built around a report canvas, a semantic model and scheduled PDF emails. An honest comparison.">
+  <meta name="twitter:image" content="https://openreport.io/og-image.png">
+
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Open Report vs Metabase",
+    "description": "Both are open source and self-hostable. Metabase is the older and larger project; Open Report is built around a report canvas, a semantic model and scheduled PDF emails. An honest comparison.",
+    "image": "https://openreport.io/og-image.png",
+    "mainEntityOfPage": "https://openreport.io/alternatives/metabase/",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Report",
+      "url": "https://openreport.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Report",
+      "url": "https://openreport.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://openreport.io/logo.png"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <picture>
+          <source srcset="/logo-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="/logo.png" alt="Open Report" class="logo-img" width="341" height="72">
+        </picture>
+      </a>
+      <div class="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="https://app.openreport.io" class="btn btn-outline btn-sm">Sign in</a>
+      </div>
+    </div>
+  </nav>
+  <main class="legal-page compare-page">
+    <article class="container prose">
+      <p class="crumb"><a href="/">Open Report</a> &rsaquo; Alternatives &rsaquo; Metabase</p>
+      <h1>Open Report vs Metabase</h1>
+      <p class="lede">This one is not a story about escaping a vendor: Metabase is open source, self-hostable
+        and considerably more mature than Open Report, with a large community behind it. If you are
+        weighing the two, the question is not licensing but shape &mdash; what a report is meant to
+        look like, and who is meant to build it.</p>
+
+      <h2>Side by side</h2>
+      <div class="compare-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>&nbsp;</th><th>Open Report</th><th>Metabase</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Licence</th><td>GNU AGPL-3.0</td><td>AGPL-3.0 for the open source edition</td></tr>
+            <tr><th scope="row">Self-hosting</th><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">Project maturity</th><td>Young &mdash; version 0.x</td><td>Mature, widely deployed, large community</td></tr>
+            <tr><th scope="row">Report layout</th><td>Free canvas: pixel positioning, multi-page, merged frames</td><td>Dashboards on a grid</td></tr>
+            <tr><th scope="row">Semantic model</th><td>Dimensions, measures, joins and row-level security defined once</td><td>Models and metrics</td></tr>
+            <tr><th scope="row">Scheduled email</th><td>PDF of the report, attached</td><td>Yes</td></tr>
+            <tr><th scope="row">Hosted in Europe</th><td>Cloud hosted in France</td><td>Cloud regions offered by the vendor</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Where Metabase is stronger</h2>
+      <p>No tool wins everywhere, and a comparison that pretends otherwise is not worth reading.</p>
+      <ul>
+        <li>Years of production use, a large community, and answers already written for most problems you will hit.</li>
+        <li>A much wider range of database connectors.</li>
+        <li>A question-asking experience designed for people who do not write SQL, refined over a long time.</li>
+        <li>A commercial edition and a support ecosystem for organisations that need one.</li>
+      </ul>
+
+      <h2>Where Open Report fits better</h2>
+      <ul>
+        <li>Reports are composed on a free canvas rather than a grid: multi-page documents, pixel placement, merged frames &mdash; closer to a report than to a dashboard.</li>
+        <li>Row-level security and custom SQL measures live on the shared model, so every report inherits them.</li>
+        <li>Scheduled emails carry the report as a PDF attachment.</li>
+        <li>The managed Cloud runs in France, for teams that need European hosting.</li>
+      </ul>
+
+      <h2>Try it yourself</h2>
+      <p>
+        Self-hosting takes one command from a fresh clone &mdash; the installer checks your Node
+        version and installs it if needed. Or open the hosted app and skip the server entirely.
+      </p>
+      <div class="compare-actions">
+        <a href="https://app.openreport.io" class="btn btn-primary btn-lg">Launch App</a>
+        <a href="/#get-started" class="btn btn-outline btn-lg">Self-host it</a>
+      </div>
+      <p class="compare-more">
+        Compare with
+        <a href="/alternatives/power-bi/">Power BI</a> &middot;
+        <a href="/alternatives/looker-studio/">Looker Studio</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <img src="/logo-dark.png" alt="Open Report" class="footer-logo-img" width="341" height="72">
+        </a>
+        <p>Open source reporting for everyone.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Product</h4>
+          <a href="/#features">Features</a>
+          <a href="/#visualizations">Visualizations</a>
+          <a href="/#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <a href="/alternatives/power-bi/">vs Power BI</a>
+          <a href="/alternatives/looker-studio/">vs Looker Studio</a>
+          <a href="/alternatives/metabase/">vs Metabase</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="/legal/cgu/">Terms of Service</a>
+          <a href="/legal/privacy/">Privacy Policy</a>
+          <a href="/legal/mentions/">Legal Notice</a>
+          <a href="https://github.com/cracky777/openreport/blob/master/LICENSE" target="_blank">License (AGPL-3.0)</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024-2026 Open Report. Licensed under the GNU AGPL-3.0.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
