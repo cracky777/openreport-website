@@ -141,7 +141,7 @@
             "name": "What do I need to self-host it?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A server with Node.js 22 or newer. Clone the repository and run ./install.sh, which checks the Node version, installs it if yours is too old, and pulls every dependency. The repository also ships a Dockerfile and a docker-compose.yml if you would rather run it in a container."
+              "text": "Docker. One docker-compose.yml runs the published image (amd64 and arm64) as a single container: download it, generate three secrets, run docker compose up -d. A home server, a NAS or a Raspberry Pi is enough. You can also run it from source on a server with Node.js 22 or newer."
             }
           },
           {
@@ -662,7 +662,7 @@
         </details>
         <details class="faq-item">
           <summary>What do I need to self-host it?</summary>
-          <p>A server with Node.js 22 or newer. Clone the repository and run <code>./install.sh</code>, which checks the Node version, installs it if yours is too old, and pulls every dependency. The repository also ships a Dockerfile and a docker-compose.yml if you would rather run it in a container.</p>
+          <p>Docker. One <code>docker-compose.yml</code> runs the published image (amd64 and arm64) as a single container: download it, generate three secrets, run <code>docker compose up -d</code>. A home server, a NAS or a Raspberry Pi is enough. You can also run it from source on a server with Node.js 22 or newer, with <code>./install.sh</code>.</p>
         </details>
         <details class="faq-item">
           <summary>Does my data leave my servers?</summary>
@@ -688,27 +688,33 @@
       <div style="text-align: center; margin-bottom: 40px;">
         <a href="https://app.openreport.io" class="btn btn-primary btn-lg">Open app</a>
       </div>
-      <h3 style="text-align: center; margin-top: 60px;">Or self-host in 2 minutes</h3>
+      <h3 style="text-align: center; margin-top: 60px;">Or self-host with Docker in 2 minutes</h3>
       <div class="code-block">
         <div class="code-header">Terminal</div>
-        <pre><code><span class="comment"># Clone the repository</span>
-git clone https://github.com/cracky777/openreport.git
-cd openreport
+        <pre><code><span class="comment"># Get the compose file</span>
+mkdir openreport &amp;&amp; cd openreport
+curl -fsSL -o docker-compose.yml \
+  https://raw.githubusercontent.com/cracky777/openreport/master/docker-compose.yml
 
-<span class="comment"># Install (checks Node, installs 22 if yours is older)</span>
-./install.sh
+<span class="comment"># Generate the three secrets it needs</span>
+printf 'SESSION_SECRET=%s\nINTERNAL_TOKEN_SECRET=%s\nDATASOURCE_ENC_KEY=%s\n' \
+  $(openssl rand -hex 32) $(openssl rand -hex 32) $(openssl rand -hex 32) &gt; .env
 
-<span class="comment"># Start the app</span>
-npm run dev</code></pre>
+<span class="comment"># Start it</span>
+docker compose up -d</code></pre>
       </div>
       <p class="get-started-sub">
-        Then open <strong>http://localhost:5173</strong>. The first user to sign up becomes the admin automatically.
+        Then open <strong>http://localhost:3001</strong>. The first user to sign up becomes the admin automatically.
       </p>
       <p class="get-started-sub">
-        Needs <strong>Node.js 22 or newer</strong>. If yours is older, <code>install.sh</code> installs it
-        through nvm, in your home directory and without sudo. On Windows, install Node 22 from
-        <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> and run
-        <code>npm run install:all</code> instead.
+        One container, for amd64 and arm64: a home server, a NAS or a Raspberry Pi will do. Everything is kept in
+        the <code>openreport-data</code> volume; upgrade with <code>docker compose pull &amp;&amp; docker compose up -d</code>.
+        On a public host, add <code>COMPOSE_PROFILES=https</code> to <code>.env</code> for nginx and a Let&rsquo;s Encrypt
+        certificate.
+      </p>
+      <p class="get-started-sub">
+        Rather run it from source? Clone the repository and run <code>./install.sh</code> (Node.js 22 or newer), as
+        described in the <a href="https://github.com/cracky777/openreport#from-source" target="_blank" rel="noopener">README</a>.
       </p>
     </div>
   </section>
