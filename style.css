@@ -185,6 +185,9 @@ section h2 {
 .tile.on h3 { color: var(--text); }
 .tile p { font-size: 15px; line-height: 1.5; color: var(--text-soft); overflow: hidden; max-height: 0; transition: max-height 0.35s ease, margin 0.35s; }
 .tile.on p { max-height: 80px; margin-top: 6px; }
+/* OpenMetadata's mark before its name, the size of the text. */
+.om-name { white-space: nowrap; }
+.om-mark { width: 0.85em; height: 1.03em; vertical-align: -0.17em; margin-right: 0.25em; }
 .tile-try { display: none; position: relative; z-index: 1; pointer-events: auto; margin-top: 6px; font-size: 14px; font-weight: 500; color: var(--accent); }
 .tile.on .tile-try { display: inline-block; }
 /* The recording's progress along the bottom edge of the open card. */
