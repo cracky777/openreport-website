@@ -46,6 +46,8 @@
   --wash-1:        linear-gradient(180deg, #F6F1FD 0%, #FBF3F1 100%);
   --wash-2:        linear-gradient(180deg, #FBF3F1 0%, #F6F1FD 100%);
   --hero-glow:     #ECE6FE;
+  --frame:         linear-gradient(135deg, #C8AAFF 0%, #9469F5 100%);
+  --frame-soft:    #EEE6FA;
   --plum:          linear-gradient(135deg, #2B2342 0%, #3A2633 100%);
   /* The pastels of the app's Chat cards (StartConversation TONES). */
   --tone-1: linear-gradient(135deg, #ECE6FE 0%, #F3ECFC 100%);
@@ -95,6 +97,7 @@
     --wash-1:        linear-gradient(180deg, #15121f 0%, #1a1319 100%);
     --wash-2:        linear-gradient(180deg, #1a1319 0%, #15121f 100%);
     --hero-glow:     #262043;
+    --frame-soft:    #2B2342;
     --tone-1: linear-gradient(135deg, #262043 0%, #2B2342 100%);
     --tone-2: linear-gradient(135deg, #2B2342 0%, #3A2633 100%);
     --tone-3: linear-gradient(135deg, #3A2633 0%, #3A2430 100%);
@@ -249,13 +252,15 @@ section h2 {
 .tour-wrap { display: flex; flex-direction: column; }
 .tile {
   position: relative; display: flex; align-items: center; gap: 18px; overflow: hidden;
-  padding: 8px 18px 8px 12px; border: 1px solid var(--border-strong); border-radius: 14px;
+  padding: 6px 16px 6px 10px; border: 3px solid var(--frame-soft); border-radius: 16px;
   background: var(--bg); transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
-.tile:hover { border-color: var(--accent-border); }
-.tile.on { background: var(--tone-1); border-color: var(--accent-border); box-shadow: var(--shadow-1); }
-.tile.on:nth-child(2) { background: var(--tone-2); }
-.tile.on:nth-child(3) { background: var(--tone-3); }
+/* Thick soft frames, like the page drawings of the illustrations: the open card's
+   is the robot's gradient, the recording's too. */
+.tile:hover { border-color: #C8AAFF; }
+.tile.on { border-color: transparent; background: var(--tone-1) padding-box, var(--frame) border-box; box-shadow: var(--shadow-1); }
+.tile.on:nth-child(2) { background: var(--tone-2) padding-box, var(--frame) border-box; }
+.tile.on:nth-child(3) { background: var(--tone-3) padding-box, var(--frame) border-box; }
 /* The whole card is the button; the link inside stays clickable above it. */
 .tile-btn { position: absolute; inset: 0; background: none; border: 0; cursor: pointer; border-radius: 14px; }
 .tile-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -279,8 +284,8 @@ section h2 {
 .tile::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: calc(var(--p, 0) * 100%); background: var(--accent); }
 .tour-screen {
   position: relative; overflow: hidden; aspect-ratio: 16 / 9; flex: 1 0 auto;
-  border: 1px solid var(--border-strong); border-radius: 12px;
-  background: #111828; box-shadow: var(--shadow-2);
+  border: 7px solid transparent; border-radius: 20px;
+  background: linear-gradient(#111828, #111828) padding-box, var(--frame) border-box; box-shadow: var(--shadow-2);
 }
 .tour-screen video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top;
