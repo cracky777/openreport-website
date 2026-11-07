@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI report generator, open source — describe the report, the AI builds it | Open Report</title>
+  <meta name="description" content="Open source AI report generator: describe the dashboard you need in one sentence and the AI builds its pages, charts and design on your data. Edit it by hand afterwards. Self-hosted or in the cloud.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a14" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://openreport.io/ai-report-generator/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Open Report">
+  <meta property="og:title" content="AI report generator, open source — describe the report, the AI builds it | Open Report">
+  <meta property="og:description" content="Open source AI report generator: describe the dashboard you need in one sentence and the AI builds its pages, charts and design on your data. Edit it by hand afterwards. Self-hosted or in the cloud.">
+  <meta property="og:url" content="https://openreport.io/ai-report-generator/">
+  <meta property="og:image" content="https://openreport.io/img/og-create.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI report generator, open source — describe the report, the AI builds it | Open Report">
+  <meta name="twitter:description" content="Open source AI report generator: describe the dashboard you need in one sentence and the AI builds its pages, charts and design on your data. Edit it by hand afterwards. Self-hosted or in the cloud.">
+  <meta name="twitter:image" content="https://openreport.io/img/og-create.jpg">
+
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "AI report generator, open source — describe the report, the AI builds it | Open Report",
+      "description": "Open source AI report generator: describe the dashboard you need in one sentence and the AI builds its pages, charts and design on your data. Edit it by hand afterwards. Self-hosted or in the cloud.",
+      "url": "https://openreport.io/ai-report-generator/",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Open Report",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Linux, macOS, Windows (self-hosted via Docker)",
+        "url": "https://openreport.io/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      "video": {
+        "@type": "VideoObject",
+        "name": "A sales report requested in one sentence, built and designed by the assistant",
+        "description": "A sales report requested in one sentence, built and designed by the assistant",
+        "thumbnailUrl": "https://openreport.io/img/og-create.jpg",
+        "contentUrl": "https://openreport.io/videos/create.mp4",
+        "uploadDate": "2026-11-03"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Open Report",
+          "item": "https://openreport.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI report generator",
+          "item": "https://openreport.io/ai-report-generator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can it generate a report from an Excel file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Drop the file into the chat with your request: the AI builds the model and the report from it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I edit the report afterwards?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, by hand in the same window, in the full editor, or by asking the AI for changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it write SQL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It works on your semantic model; the engine compiles the SQL, so a revenue figure is computed the same way in every report."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI model does it need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One with tool calling: a local model through Ollama or LM Studio, an OpenAI-compatible API, Anthropic or your Claude subscription. See self-hosted AI analytics."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <picture>
+          <source srcset="/logo-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="/logo.png" alt="Open Report" class="logo-img" width="341" height="72">
+        </picture>
+      </a>
+      <div class="nav-links">
+        <a href="/#product">Product</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="https://github.com/cracky777/openreport" target="_blank" rel="noopener" class="nav-github"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+        <a href="https://app.openreport.io" class="btn btn-primary btn-sm">Launch the app</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="legal-page compare-page">
+    <article class="container prose">
+      <p class="crumb"><a href="/">Open Report</a> &rsaquo; AI report generator</p>
+      <h1>Describe the report, the AI builds it</h1>
+      <p class="lede">Say what the report is for, in your own words, and Open Report builds it on your data: pages, charts, layout and look.</p>
+
+      <video class="page-video" src="/videos/create.mp4" poster="/img/og-create.jpg" muted playsinline autoplay loop preload="metadata" width="1600" height="900" aria-label="A sales report requested in one sentence, built and designed by the assistant"></video>
+
+      <h2>From one sentence to a report</h2>
+      <ul>
+        <li>“A sales report for the management team” is enough: the AI asks which pages you want, or decides for you.</li>
+        <li>Each page answers one question, with the charts that suit it: trends, rankings, maps, comparisons with last year.</li>
+        <li>A designer pass then gives the whole report its look: colours, fonts, layout and the page menu.</li>
+      </ul>
+
+      <h2>Then it is yours</h2>
+      <ul>
+        <li>Move and resize the visuals by hand, or ask for a change in the chat.</li>
+        <li>Every change can be undone, and nothing is saved until you click Save.</li>
+        <li>Open the report in the editor whenever you want full control.</li>
+      </ul>
+
+      <h2>From a database or from files</h2>
+      <p>Connect a database, or drop CSV and Excel files into the chat: the AI joins them, builds the model and then the report. Accounting files such as a French FEC become a ready-made finance report.</p>
+
+      <h2>Built on your model</h2>
+      <p>The AI uses the measures and joins of your semantic model, and any new measure it needs comes as a card you approve.</p>
+
+      <h2>Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Can it generate a report from an Excel file?</summary>
+          <p>Yes. Drop the file into the chat with your request: the AI builds the model and the report from it.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I edit the report afterwards?</summary>
+          <p>Yes, by hand in the same window, in the full editor, or by asking the AI for changes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it write SQL?</summary>
+          <p>No. It works on your semantic model; the engine compiles the SQL, so a revenue figure is computed the same way in every report.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which AI model does it need?</summary>
+          <p>One with tool calling: a local model through Ollama or LM Studio, an OpenAI-compatible API, Anthropic or your Claude subscription. See <a href="/self-hosted-ai-analytics/">self-hosted AI analytics</a>.</p>
+        </details>
+      </div>
+
+      <div class="compare-actions">
+        <a href="https://app.openreport.io" class="btn btn-primary btn-lg">Launch the app</a>
+        <a href="/#get-started" class="btn btn-outline btn-lg">Self-host it</a>
+      </div>
+      <p class="compare-more">
+        See also
+        <a href="/ai-data-analysis/">AI data analysis</a> &middot;
+        <a href="/self-hosted-ai-analytics/">Self-hosted AI analytics</a> &middot;
+        <a href="/alternatives/power-bi/">vs Power BI</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <picture><source srcset="/logo-dark.png" media="(prefers-color-scheme: dark)"><img src="/logo.png" alt="Open Report" class="footer-logo-img" width="341" height="72"></picture>
+        </a>
+        <p>Open source reporting, made in France.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Product</h4>
+          <a href="/#product">What you get</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#get-started">Install</a>
+          <a href="/ai-data-analysis/">AI data analysis</a>
+          <a href="/ai-report-generator/">AI report generator</a>
+          <a href="/self-hosted-ai-analytics/">Self-hosted AI</a>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <a href="/alternatives/power-bi/">vs Power BI</a>
+          <a href="/alternatives/looker-studio/">vs Looker Studio</a>
+          <a href="/alternatives/metabase/">vs Metabase</a>
+          <a href="/alternatives/tableau/">vs Tableau</a>
+          <a href="/alternatives/superset/">vs Superset</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="https://github.com/cracky777/openreport" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/cracky777/openreport/issues" target="_blank" rel="noopener">Issues</a>
+          <a href="https://github.com/cracky777/openreport/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="/legal/cgu/">Terms of Service</a>
+          <a href="/legal/privacy/">Privacy Policy</a>
+          <a href="/legal/mentions/">Legal Notice</a>
+          <a href="https://github.com/cracky777/openreport/blob/master/LICENSE" target="_blank" rel="noopener">License (AGPL-3.0)</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024-2026 Open Report. Licensed under the GNU AGPL-3.0.</p>
+    </div>
+  </footer>
+</body>
+</html>

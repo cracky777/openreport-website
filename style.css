@@ -616,6 +616,7 @@ g.sc-pop { animation-delay: 1.05s; }
 }
 .compare-page .faq-list { margin-bottom: 8px; }
 /* The prose underlines its links; a button is not a link to read. */
-.compare-page .btn { text-decoration: none; }
+.legal-page .prose a.btn { text-decoration: none; }
+.legal-page .prose a.btn-primary, .legal-page .prose a.btn-primary:hover { color: #fff; }
 .compare-more { font-size: 14px; color: var(--text-soft); }
 .compare-more a { margin: 0 4px; }
