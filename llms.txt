@@ -1,0 +1,31 @@
+# Open Report
+
+> Open Report is the open source reporting tool, powered by AI. Ask your data questions in plain words (AI ad-hoc analysis), describe a report and let the AI generate it, or build dashboards by hand on a drag-and-drop canvas. Self-hosted with Docker, free under the GNU AGPL-3.0, or hosted in France.
+
+- The AI assistant works with the model you choose: a local model through Ollama or LM Studio, any OpenAI-compatible API, Anthropic, or a Claude subscription. With a local model, no data leaves your servers.
+- The administrator decides what the AI may read: field names only, cached aggregates, or query results (read as the user, with their row-level security).
+- Answers and reports are built on a semantic model: joins, measures and row-level security defined once, used by every report.
+- Databases: PostgreSQL, MySQL, SQL Server, Azure SQL, Oracle, Snowflake, BigQuery, Databricks, ClickHouse, Redshift; CSV and Excel files through DuckDB.
+- Accounting files (French FEC, SAF-T, DATEV, SIE, XAF, JPK) become a ready-made finance report.
+- Data lineage: the AI answers "where does this number come from?" from OpenMetadata.
+
+## Product
+
+- [AI data analysis](https://openreport.io/ai-data-analysis/): ask your data in plain words, get the answer with its chart
+- [AI report generator](https://openreport.io/ai-report-generator/): describe the report, the AI builds its pages and design
+- [Self-hosted AI analytics](https://openreport.io/self-hosted-ai-analytics/): local models, data-sharing levels, open source
+- [Open source AI ad-hoc analysis tools compared](https://openreport.io/open-source-ai-ad-hoc-analysis-tools/): Open Report, Metabase, Superset, Wren AI, Vanna
+
+## Comparisons
+
+- [Open Report vs Power BI](https://openreport.io/alternatives/power-bi/)
+- [Open Report vs Tableau](https://openreport.io/alternatives/tableau/)
+- [Open Report vs Looker Studio](https://openreport.io/alternatives/looker-studio/)
+- [Open Report vs Metabase](https://openreport.io/alternatives/metabase/)
+- [Open Report vs Apache Superset](https://openreport.io/alternatives/superset/)
+
+## Get it
+
+- [Source code on GitHub](https://github.com/cracky777/openreport): AGPL-3.0, Docker image on GHCR
+- [Try the editor](https://demo.openreport.io): public demo, no sign-up
+- [Hosted app](https://app.openreport.io): free tier, hosted in France

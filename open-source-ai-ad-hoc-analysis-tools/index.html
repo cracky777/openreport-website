@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open source AI ad-hoc analysis tools compared (2026) | Open Report</title>
+  <meta name="description" content="Which open source tools let you ask your data questions in plain words? Open Report, Metabase, Apache Superset, Wren AI and Vanna compared: licence, AI in the free edition, semantic layer, local models. Updated November 2026.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a14" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://openreport.io/open-source-ai-ad-hoc-analysis-tools/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Open Report">
+  <meta property="og:title" content="Open source AI ad-hoc analysis tools compared (2026) | Open Report">
+  <meta property="og:description" content="Which open source tools let you ask your data questions in plain words? Open Report, Metabase, Apache Superset, Wren AI and Vanna compared: licence, AI in the free edition, semantic layer, local models. Updated November 2026.">
+  <meta property="og:url" content="https://openreport.io/open-source-ai-ad-hoc-analysis-tools/">
+  <meta property="og:image" content="https://openreport.io/img/og-ask.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Open source AI ad-hoc analysis tools compared (2026) | Open Report">
+  <meta name="twitter:description" content="Which open source tools let you ask your data questions in plain words? Open Report, Metabase, Apache Superset, Wren AI and Vanna compared: licence, AI in the free edition, semantic layer, local models. Updated November 2026.">
+  <meta name="twitter:image" content="https://openreport.io/img/og-ask.jpg">
+
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Open source AI ad-hoc analysis tools compared (2026) | Open Report",
+      "description": "Which open source tools let you ask your data questions in plain words? Open Report, Metabase, Apache Superset, Wren AI and Vanna compared: licence, AI in the free edition, semantic layer, local models. Updated November 2026.",
+      "url": "https://openreport.io/open-source-ai-ad-hoc-analysis-tools/",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Open Report",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Linux, macOS, Windows (self-hosted via Docker)",
+        "url": "https://openreport.io/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Open Report",
+          "item": "https://openreport.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Open source AI ad-hoc analysis tools",
+          "item": "https://openreport.io/open-source-ai-ad-hoc-analysis-tools/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is AI ad-hoc analysis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Answering a one-off question about your data by asking it in plain words, instead of writing SQL or building a report first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run AI ad-hoc analysis without sending data to OpenAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Open Report works with a local model through Ollama or LM Studio, so neither the questions nor the data leave your servers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this comparison neutral?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No comparison written by one of the projects is. We checked each fact against the projects’ own pages in November 2026; tell us on GitHub if something has changed."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <picture>
+          <source srcset="/logo-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="/logo.png" alt="Open Report" class="logo-img" width="341" height="72">
+        </picture>
+      </a>
+      <div class="nav-links">
+        <a href="/#product">Product</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="https://github.com/cracky777/openreport" target="_blank" rel="noopener" class="nav-github"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+        <a href="https://app.openreport.io" class="btn btn-primary btn-sm">Launch the app</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="legal-page compare-page">
+    <article class="container prose">
+      <p class="crumb"><a href="/">Open Report</a> &rsaquo; Open source AI ad-hoc analysis tools</p>
+      <h1>Open source AI ad-hoc analysis tools, compared</h1>
+      <p class="lede">AI ad-hoc analysis means asking your data a one-off question in plain words and getting the answer, without writing SQL or waiting for a report. Five open source projects do it today, in quite different ways. We make one of them, so judge the facts, not the order.</p>
+
+
+      <h2>Side by side</h2>
+      <div class="compare-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>&nbsp;</th><th>Open Report</th><th>Metabase</th><th>Superset</th><th>Wren AI</th><th>Vanna</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">What it is</th><td>Reporting tool with AI</td><td>BI tool with AI</td><td>BI tool</td><td>AI layer for text-to-SQL</td><td>Python library</td></tr>
+            <tr><th scope="row">Licence</th><td>AGPL-3.0</td><td>AGPL-3.0 (open source edition)</td><td>Apache 2.0</td><td>Apache 2.0 (open core)</td><td>MIT</td></tr>
+            <tr><th scope="row">AI in the free edition</th><td>Yes: questions, reports and charts</td><td>Yes: Metabot</td><td>No assistant; optional MCP server for an outside AI client</td><td>Semantic layer, text-to-SQL and MCP server; the full app is commercial</td><td>Yes, as code you integrate</td></tr>
+            <tr><th scope="row">Answers on a shared model</th><td>Yes: joins and measures defined once</td><td>Models and metrics</td><td>Datasets and metrics</td><td>Yes: MDL semantic layer</td><td>Trained on your schema and examples</td></tr>
+            <tr><th scope="row">Reports and dashboards</th><td>Multi-page reports, built by hand or by the AI</td><td>Dashboards</td><td>Dashboards</td><td>In the commercial app</td><td>No</td></tr>
+            <tr><th scope="row">Which AI model</th><td>Yours: Ollama, LM Studio, any OpenAI-compatible server</td><td>Your own model key, or Metabase’s managed AI</td><td>The AI client you connect</td><td>OpenAI-compatible endpoints</td><td>Any model you call from your code</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Open Report</h2>
+      <p>Ask in any language and get the answer with its chart, or describe a report and the AI builds it, pages and design included. Row-level security applies to the AI as to any reader, and the administrator chooses what it may read. Young project, version 0.x. <a href="/ai-data-analysis/">How it works</a>.</p>
+
+      <h2>Metabase</h2>
+      <p>The mature choice: Metabot answers questions and writes SQL in every edition, open source included, with your own model key. Larger community and many more connectors than Open Report. <a href="/alternatives/metabase/">Open Report vs Metabase</a>.</p>
+
+      <h2>Apache Superset</h2>
+      <p>A strong tool for SQL users, with no assistant of its own: since version 5.0 an optional MCP server lets Claude, ChatGPT or another AI client query it. <a href="/alternatives/superset/">Open Report vs Superset</a>.</p>
+
+      <h2>Wren AI</h2>
+      <p>Built around a semantic layer for text-to-SQL, released under Apache 2.0 with an MCP server; the full GenBI application is sold as a cloud or enterprise product.</p>
+
+      <h2>Vanna</h2>
+      <p>A Python library to add text-to-SQL to your own application, under the MIT licence. Its main repository was archived in March 2026, so plan for maintaining it yourself.</p>
+
+      <h2>How to choose</h2>
+      <ul>
+        <li>Business users who want answers and finished reports: Open Report or Metabase.</li>
+        <li>An analyst team that lives in SQL: Superset, with an AI client over MCP if you want one.</li>
+        <li>A semantic layer to plug into your own AI stack: Wren AI.</li>
+        <li>Text-to-SQL inside your own product: Vanna, knowing it is no longer maintained.</li>
+      </ul>
+
+      <h2>Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is AI ad-hoc analysis?</summary>
+          <p>Answering a one-off question about your data by asking it in plain words, instead of writing SQL or building a report first.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I run AI ad-hoc analysis without sending data to OpenAI?</summary>
+          <p>Yes. Open Report works with a local model through Ollama or LM Studio, so neither the questions nor the data leave your servers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is this comparison neutral?</summary>
+          <p>No comparison written by one of the projects is. We checked each fact against the projects’ own pages in November 2026; tell us on GitHub if something has changed.</p>
+        </details>
+      </div>
+
+      <div class="compare-actions">
+        <a href="https://app.openreport.io" class="btn btn-primary btn-lg">Launch the app</a>
+        <a href="/#get-started" class="btn btn-outline btn-lg">Self-host it</a>
+      </div>
+      <p class="compare-more">
+        See also
+        <a href="/ai-data-analysis/">AI data analysis</a> &middot;
+        <a href="/self-hosted-ai-analytics/">Self-hosted AI analytics</a> &middot;
+        <a href="/alternatives/metabase/">vs Metabase</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <picture><source srcset="/logo-dark.png" media="(prefers-color-scheme: dark)"><img src="/logo.png" alt="Open Report" class="footer-logo-img" width="341" height="72"></picture>
+        </a>
+        <p>Open source reporting, made in France.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Product</h4>
+          <a href="/#product">What you get</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#get-started">Install</a>
+          <a href="/ai-data-analysis/">AI data analysis</a>
+          <a href="/ai-report-generator/">AI report generator</a>
+          <a href="/self-hosted-ai-analytics/">Self-hosted AI</a>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <a href="/alternatives/power-bi/">vs Power BI</a>
+          <a href="/alternatives/looker-studio/">vs Looker Studio</a>
+          <a href="/alternatives/metabase/">vs Metabase</a>
+          <a href="/alternatives/tableau/">vs Tableau</a>
+          <a href="/alternatives/superset/">vs Superset</a>
+          <a href="/open-source-ai-ad-hoc-analysis-tools/">AI analysis tools</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="https://github.com/cracky777/openreport" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/cracky777/openreport/issues" target="_blank" rel="noopener">Issues</a>
+          <a href="https://github.com/cracky777/openreport/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="/legal/cgu/">Terms of Service</a>
+          <a href="/legal/privacy/">Privacy Policy</a>
+          <a href="/legal/mentions/">Legal Notice</a>
+          <a href="https://github.com/cracky777/openreport/blob/master/LICENSE" target="_blank" rel="noopener">License (AGPL-3.0)</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024-2026 Open Report. Licensed under the GNU AGPL-3.0.</p>
+    </div>
+  </footer>
+</body>
+</html>
