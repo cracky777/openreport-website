@@ -609,5 +609,13 @@ g.sc-pop { animation-delay: 1.05s; }
 .compare-actions {
   display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0 28px;
 }
+/* The recording at the top of a use page: the product shown, not described. */
+.page-video {
+  display: block; width: 100%; height: auto; margin: 8px 0 28px;
+  border-radius: 12px; border: 1px solid var(--border);
+}
+.compare-page .faq-list { margin-bottom: 8px; }
+/* The prose underlines its links; a button is not a link to read. */
+.compare-page .btn { text-decoration: none; }
 .compare-more { font-size: 14px; color: var(--text-soft); }
 .compare-more a { margin: 0 4px; }

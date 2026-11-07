@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-hosted AI analytics with a local LLM — open source BI | Open Report</title>
+  <meta name="description" content="Open source BI with an AI assistant you host yourself: run it with a local LLM (Ollama, LM Studio) or the provider you choose, and decide exactly what data the AI may read.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a14" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://openreport.io/self-hosted-ai-analytics/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Open Report">
+  <meta property="og:title" content="Self-hosted AI analytics with a local LLM — open source BI | Open Report">
+  <meta property="og:description" content="Open source BI with an AI assistant you host yourself: run it with a local LLM (Ollama, LM Studio) or the provider you choose, and decide exactly what data the AI may read.">
+  <meta property="og:url" content="https://openreport.io/self-hosted-ai-analytics/">
+  <meta property="og:image" content="https://openreport.io/img/create.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Self-hosted AI analytics with a local LLM — open source BI | Open Report">
+  <meta name="twitter:description" content="Open source BI with an AI assistant you host yourself: run it with a local LLM (Ollama, LM Studio) or the provider you choose, and decide exactly what data the AI may read.">
+  <meta name="twitter:image" content="https://openreport.io/img/create.jpg">
+
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Self-hosted AI analytics with a local LLM — open source BI | Open Report",
+      "description": "Open source BI with an AI assistant you host yourself: run it with a local LLM (Ollama, LM Studio) or the provider you choose, and decide exactly what data the AI may read.",
+      "url": "https://openreport.io/self-hosted-ai-analytics/",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Open Report",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Linux, macOS, Windows (self-hosted via Docker)",
+        "url": "https://openreport.io/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      "video": {
+        "@type": "VideoObject",
+        "name": "A sales report requested in one sentence, built and designed by the assistant",
+        "description": "A sales report requested in one sentence, built and designed by the assistant",
+        "thumbnailUrl": "https://openreport.io/img/create.jpg",
+        "contentUrl": "https://openreport.io/videos/create.mp4",
+        "uploadDate": "2026-11-03"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Open Report",
+          "item": "https://openreport.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Self-hosted AI analytics",
+          "item": "https://openreport.io/self-hosted-ai-analytics/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I use Open Report with Ollama?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Point the assistant to your Ollama or LM Studio server; any model with tool calling works, and the settings page tests it for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does my data go to OpenAI or Anthropic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you choose one of them, and only what the sharing level allows. With a local model, nothing leaves your servers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the AI assistant part of the free edition?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The self-hosted Community edition includes every feature, the AI assistant too, with no user limit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the AI see under row-level security?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "What the user sees: it reads through the same query route, with the same rights and the same row-level rules."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <picture>
+          <source srcset="/logo-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="/logo.png" alt="Open Report" class="logo-img" width="341" height="72">
+        </picture>
+      </a>
+      <div class="nav-links">
+        <a href="/#product">Product</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="https://github.com/cracky777/openreport" target="_blank" rel="noopener" class="nav-github"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+        <a href="https://app.openreport.io" class="btn btn-primary btn-sm">Launch the app</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="legal-page compare-page">
+    <article class="container prose">
+      <p class="crumb"><a href="/">Open Report</a> &rsaquo; Self-hosted AI analytics</p>
+      <h1>AI analytics that runs on your servers</h1>
+      <p class="lede">Open Report is an open source reporting tool with an AI assistant, and you choose where both of them run.</p>
+
+      <video class="page-video" src="/videos/create.mp4" poster="/img/create.jpg" muted playsinline autoplay loop preload="metadata" width="1600" height="900" aria-label="A sales report requested in one sentence, built and designed by the assistant"></video>
+
+      <h2>Your model, not ours</h2>
+      <ul>
+        <li>A local model through Ollama or LM Studio: nothing leaves your network.</li>
+        <li>Any OpenAI-compatible API, Anthropic, or your own Claude subscription.</li>
+        <li>One model for the whole instance, or a personal one per user.</li>
+      </ul>
+
+      <h2>You decide what the AI reads</h2>
+      <ul>
+        <li><strong>Schema only</strong>: the AI sees field names and labels, never a figure.</li>
+        <li><strong>Schema and cached data</strong>: it also reads the aggregates already cached for your reports.</li>
+        <li><strong>Query results</strong>: it reads up to 50 rows per answer, as the user, with their rights.</li>
+      </ul>
+
+      <h2>The AI proposes, you apply</h2>
+      <p>The assistant has no write access: every chart, report, measure or join it suggests comes as a card you check and apply yourself.</p>
+
+      <h2>Open source, and it stays that way</h2>
+      <p>The code is published under the GNU AGPL-3.0: you can read what is sent to the model, run it at work, and keep the version you installed.</p>
+
+      <h2>Running it</h2>
+      <p>One Docker container on any machine, a Raspberry Pi included; or the hosted Cloud, in France, under EU law.</p>
+
+      <h2>Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Can I use Open Report with Ollama?</summary>
+          <p>Yes. Point the assistant to your Ollama or LM Studio server; any model with tool calling works, and the settings page tests it for you.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does my data go to OpenAI or Anthropic?</summary>
+          <p>Only if you choose one of them, and only what the sharing level allows. With a local model, nothing leaves your servers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is the AI assistant part of the free edition?</summary>
+          <p>Yes. The self-hosted Community edition includes every feature, the AI assistant too, with no user limit.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does the AI see under row-level security?</summary>
+          <p>What the user sees: it reads through the same query route, with the same rights and the same row-level rules.</p>
+        </details>
+      </div>
+
+      <div class="compare-actions">
+        <a href="https://app.openreport.io" class="btn btn-primary btn-lg">Launch the app</a>
+        <a href="/#get-started" class="btn btn-outline btn-lg">Self-host it</a>
+      </div>
+      <p class="compare-more">
+        See also
+        <a href="/ai-data-analysis/">AI data analysis</a> &middot;
+        <a href="/alternatives/power-bi/">vs Power BI</a> &middot;
+        <a href="/alternatives/looker-studio/">vs Looker Studio</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <picture><source srcset="/logo-dark.png" media="(prefers-color-scheme: dark)"><img src="/logo.png" alt="Open Report" class="footer-logo-img" width="341" height="72"></picture>
+        </a>
+        <p>Open source reporting, made in France.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Product</h4>
+          <a href="/#product">What you get</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#get-started">Install</a>
+          <a href="/ai-data-analysis/">AI data analysis</a>
+          <a href="/self-hosted-ai-analytics/">Self-hosted AI</a>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <a href="/alternatives/power-bi/">vs Power BI</a>
+          <a href="/alternatives/looker-studio/">vs Looker Studio</a>
+          <a href="/alternatives/metabase/">vs Metabase</a>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <a href="https://github.com/cracky777/openreport" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/cracky777/openreport/issues" target="_blank" rel="noopener">Issues</a>
+          <a href="https://github.com/cracky777/openreport/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="/legal/cgu/">Terms of Service</a>
+          <a href="/legal/privacy/">Privacy Policy</a>
+          <a href="/legal/mentions/">Legal Notice</a>
+          <a href="https://github.com/cracky777/openreport/blob/master/LICENSE" target="_blank" rel="noopener">License (AGPL-3.0)</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024-2026 Open Report. Licensed under the GNU AGPL-3.0.</p>
+    </div>
+  </footer>
+</body>
+</html>
